@@ -1,6 +1,7 @@
 package edu.mum.service;
 
 import edu.mum.entity.Product;
+import edu.mum.entity.ProductType;
 import edu.mum.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,42 +9,48 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 
+
 @Service
 @Transactional
-public class ProductService {
+public class ProductService  {
 
     @Autowired
     private ProductRepository productRepository;
 
-    //create
-    public void saveProduct(Product product) {
+    public String saveProduct(Product product){
 
         productRepository.save(product);
+
+
+        return "saved!";
     }
 
-    //delete
-    public void deleteProduct(int productId) {
+    public String deleteProduct(int productId){
 
         productRepository.delete(productId);
+
+        return " item is deleted";
     }
 
-    //read
-    public List<Product> getAllProduct() {
+    public List<Product> searchAllProduct(){
 
-        List<Product> products = productRepository.findAll();
+        List<Product>products = productRepository.findAll();
 
         return products;
 
     }
 
     public Product getProduct(Integer productId) {
-        return productRepository.findOne(productId);
+        return  productRepository.findOne(productId);
     }
 
-    //update
-    public void updateProduct(int productId, Product product) {
+    public String updateProduct(Product product){
+
         productRepository.save(product);
+
+        return "successfully updated!";
     }
+
 
 
 }

@@ -19,8 +19,7 @@ public class Order {
     @OneToMany(mappedBy = "order", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<OrderLine> orderLines = new ArrayList<>();
 
-    /*@OneToMany(mappedBy = "order", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Product> products = new ArrayList<>();*/
+
 
     public Order() {
     }

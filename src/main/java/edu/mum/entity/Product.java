@@ -1,5 +1,7 @@
 package edu.mum.entity;
 
+import org.apache.tomcat.util.codec.binary.Base64;
+
 import javax.persistence.*;
 
 @Entity
@@ -7,21 +9,33 @@ public class Product {
 
     @Id
     @GeneratedValue
-    private int productId;
-    private String productName;
-    private String description;
-    private double price;
+    int productId;
+
+    double price;
     @Enumerated(EnumType.STRING)
-    private ProductType type;
+    ProductType type;
+
+    String description;
     @Lob
     byte[] image;
 
-    public String getProductName() {
-        return productName;
+    @Transient
+    private
+    String strData;
+    /*OrderLine orderline;*/
+
+    public Product(double price, int productId, ProductType type, String description, byte[] image) {
+        super();
+
+        this.price = price;
+        this.productId = productId;
+        this.type = type;
+        this.description = description;
+        this.image = image;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public Product() {
+        super();
     }
 
     public double getPrice() {
@@ -49,6 +63,16 @@ public class Product {
     }
 
     public String getDescription() {
+        if(image != null)
+        {
+            try{
+                image = Base64.encodeBase64(image);
+                strData = new String(image,"UTF-8");
+            }catch(Exception ex)
+            {
+                System.out.println(ex.getMessage());
+            }
+        }
         return description;
     }
 
@@ -64,4 +88,12 @@ public class Product {
         this.image = image;
     }
 
+    public String getStrData() {
+
+        return strData;
+    }
+
+    public void setStrData(String strData) {
+        this.strData = strData;
+    }
 }

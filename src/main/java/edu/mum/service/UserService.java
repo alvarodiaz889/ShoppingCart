@@ -22,8 +22,17 @@ public class UserService {
         return p;
     }
 
+    public User findByUsername(String username) {
+        User p = repository.findByUsername(username);
+        return p;
+    }
+
     public void remove(User person) {
         repository.delete(person);
+    }
+
+    public void removeById(Integer id) {
+        repository.delete(id);
     }
 
     public List<User> getAll() {

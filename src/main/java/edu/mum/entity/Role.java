@@ -1,7 +1,7 @@
 package edu.mum.entity;
 
 public enum Role {
-    ADMIN,
-    REGISTERED,
-    NO_REGISTERED
+    ROLE_ADMIN,
+    ROLE_REGISTERED,
+    ROLE_NO_REGISTERED
 }

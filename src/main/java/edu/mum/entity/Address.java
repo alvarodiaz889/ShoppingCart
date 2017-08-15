@@ -8,17 +8,28 @@ import javax.persistence.Id;
 public class Address {
     @Id
     @GeneratedValue
-    private int id;
+    private int addressId;
     private String city;
     private String zipcode;
     private String country;
     private String state;
 
-    public int getId() {
-        return id;
+    public Address(){}
+
+    public Address(int id,String city,String zipcode,String country,String state)
+    {
+        this.addressId = id;
+        this.city = city;
+        this.zipcode = zipcode;
+        this.country = country;
+        this.state = state;
     }
-    public void setId(int id) {
-        this.id = id;
+
+    public int getAddressId() {
+        return addressId;
+    }
+    public void setAddressId(int id) {
+        this.addressId = id;
     }
     public String getCity() {
         return city;

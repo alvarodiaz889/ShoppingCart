@@ -2,13 +2,13 @@ package edu.mum.service;
 import edu.mum.entity.Order;
 import edu.mum.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
-@Transactional
 public class OrderService {
 
     @Autowired

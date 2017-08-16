@@ -22,81 +22,89 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>Cart</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Hello!</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Hello! ${user} </a></li>
         </ul>
     </div>
 </nav>
 
 <div class="container">
-    <form:form class="form-horizontal" action="/shop/order" method="post">
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        <div class="form-group">
-            <h3>Shipping Address Information</h3><br>
-            <div class="col-sm-12">
-                <h6>Error!</h6>
-                <form:errors path="fullname" cssStyle="color:red"/>
-            </div>
-            <label class="control-label col-sm-2" for="fullName">Full Name:</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="fullName" name="fullname" placeholder="Enter fullname" >
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="city">City:</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="city" name="city" placeholder="Enter city" >
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="zipcode">Zipcode:</label>
-            <div class="col-sm-10">
-                <input type="number" class="form-control" id="zipcode" name="zipcode" placeholder="Enter zipcoide" >
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="state">State:</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="state" name="state" placeholder="Enter state">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="country">Country:</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="country" name="country" placeholder="Enter country">
-            </div>
-        </div>
-
-        <h3>Credit Card Information</h3><br>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="cardnumber">Credit card number:</label>
-            <div class="col-sm-10">
-                <input type="number" class="form-control" name="cardNumber" id="cardnumber"
-                       placeholder="NNNN-NNNN-NNNN-NNNN format" pattern="\b\d{4}[ -]?\d{4}[ -]?\d{4}[ -]?\d{4}\b">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="name">Name on card:</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" name="name" id="name" placeholder="Enter Card name">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="expiryDate">Expiration Date:</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" name="expiryDate" id="expiryDate"
-                       placeholder="Enter expiry date format : MM/DDDD">
-            </div>
-        </div>
-        <div class="form-group">
+    <div class="row">
+        <%--  <div class="col-md-8" style="margin: 0 auto">--%>
+        <form:form class="form-horizontal" action="/shop/order" method="post" modelAttribute="shipping">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-success">Submit</button>
+                <h3>Shipping Address Information</h3><br>
+                <label class="control-label col-sm-2" for="fullName">Full Name:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="fullName" name="fullname" placeholder="Enter fullname">
+                </div>
+                <div class="col-sm-4"><form:errors path="fullname" cssStyle="color:red"/></div>
+
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="city">City:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="city" name="city" placeholder="Enter city">
+                </div>
+                <div class="col-sm-4"><form:errors path="city" cssStyle="color:red"/></div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="zipcode">Zipcode:</label>
+                <div class="col-sm-6">
+                    <input type="number" class="form-control" id="zipcode" name="zipcode" placeholder="Enter zipcoide">
+                </div>
+                <div class="col-sm-4"><form:errors path="zipcode" cssStyle="color:red"/></div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="state">State:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="state" name="state" placeholder="Enter state">
+                </div>
+                <div class="col-sm-4"><form:errors path="state" cssStyle="color:red"/></div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="country">Country:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="country" name="country" placeholder="Enter country">
+                </div>
+                <div class="col-sm-4"><form:errors path="country" cssStyle="color:red"/></div>
+            </div>
+
+            <h3>Credit Card Information</h3><br>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="cardnumber">Credit card number:</label>
+                <div class="col-sm-6">
+                    <input type="number" class="form-control" name="cardNumber" id="cardnumber" placeholder="NNNN-NNNN-NNNN-NNNN format">
+                </div>
+                <div class="col-sm-4"><form:errors path="cardNumber" cssStyle="color:red"/></div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="name">Name on card:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Enter Card name">
+                </div>
+                <div class="col-sm-4"><form:errors path="name" cssStyle="color:red"/></div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="expiryDate">Expiration Date:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="expiryDate" id="expiryDate"
+                           placeholder="Enter expiry date format : MM/DDDD">
+                </div>
+                <div class="col-sm-4"><form:errors path="expiryDate" cssStyle="color:red"/></div>
+            </div>
+            <div class="form-group">
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-6">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </form:form>
-    <a href="<c:url value="url"/>"
-       class="btn btn-danger" onclick="return confirm('Are you sure?')">Go Back</a>
+        </form:form>
+    </div>
+<%--</div>--%>
+<a href="<c:url value="url"/>"
+   class="btn btn-danger" onclick="return confirm('Are you sure?')">Go Back</a>
 </div>
 </body>
 </html>

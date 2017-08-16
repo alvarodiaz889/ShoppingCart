@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Pattern;
 
 /**
  * Created by Sushan on 8/15/2017.
@@ -17,22 +18,22 @@ public class Shipping {
     private int id;
    @NotEmpty(message = "fullname cant be empty")
     private String fullname;
-    //@NotEmpty(message = "enter your city")
+    @NotEmpty(message = "enter your city")
     private String city;
-    //@NotEmpty(message = "enter your zipcode")
-    private int zipcode;
-    //@NotEmpty(message = "enter your state")
+    @NotEmpty(message = "enter your zipcode")
+    private String zipcode;
+    @NotEmpty(message = "enter your state")
     private String state;
-    //@NotEmpty(message = "enter your country")
+    @NotEmpty(message = "enter your country")
     private String country;
 
     //credit card info
-    //@NotEmpty
+    @NotEmpty(message = "enter 16 digit(XXXX-XXXX-XXXX-XXXX)")
     //@Pattern(regexp = "\\b\\d{4}[ -]?\\d{4}[ -]?\\d{4}[ -]?\\d{4}\\b")
-    private long cardNumber;
-    //@NotEmpty(message = "enter credit cardname")
+    private String cardNumber;
+    @NotEmpty(message = "enter credit cardname")
     private String name;
-    //@NotEmpty(message = "enter credit date")
+    @NotEmpty(message = "enter credit date")
     private String expiryDate;
 
     public int getId() {
@@ -59,11 +60,11 @@ public class Shipping {
         this.city = city;
     }
 
-    public int getZipcode() {
+    public String getZipcode() {
         return zipcode;
     }
 
-    public void setZipcode(int zipcode) {
+    public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
     }
 
@@ -83,11 +84,11 @@ public class Shipping {
         this.country = country;
     }
 
-    public long getCardNumber() {
+    public String getCardNumber() {
         return cardNumber;
     }
 
-    public void setCardNumber(long cardNumber) {
+    public void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
     }
 

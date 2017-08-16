@@ -53,6 +53,7 @@
 
 </head>
 <body>
+<div class="container-wrapper">
 <div id="wrapper">
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-static-top navcolor" role="navigation" style="margin-bottom: 0">
@@ -137,5 +138,7 @@
         </li>
 
     </c:forEach>
+    </ul>
+</div>
 </body>
 </html>

@@ -1,14 +1,15 @@
 package edu.mum.controller;
+
 import edu.mum.entity.Address;
-import edu.mum.entity.Role;
 import edu.mum.entity.User;
 import edu.mum.service.UserService;
 import edu.mum.utilities.Utility;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 

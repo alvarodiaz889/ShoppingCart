@@ -37,24 +37,27 @@
 
         </section>
     </div>
-</div>
 
-<img src="${product.image}" width="50%" height="50%" style="padding: 10px 10px"/>
-<div class="productdisplay">
-    <p>${product.description}</p>
-    <p>${product.price}</p>
-    <p>${product.type}</p>
-
-
-    <form action="/product/addToCart" method="post">
-        <label>Quantity:</label>
-        <input type="number" class="item_quantity"  value="1" name="quantity">
-        <input type="hidden"   value="${product.productId}" name="productId" >
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        <button class="btn btn-success">Add to cart</button>
-    </form>
+    <div class="container">
+        <div class="col-md-5">
+            <img src="${product.image}" width="50%" height="50%" style="padding: 10px 10px"/>
+        </div>
+        <div class="col-md-5"> <%--productdisplay--%>
+            <p>${product.productName}</p>
+            <p>${product.description}</p>
+            <p>${product.price}</p>
+            <p>${product.type}</p>
 
 
+        <form action="/product/addToCart" method="post">
+            <label>Quantity:</label>
+            <input type="number" class="item_quantity" value="1" name="quantity">
+            <input type="hidden" value="${product.productId}" name="productId">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/><br/></br>
+            <button class="btn btn-success">Add to cart</button>
+        </form>
+        </div>
+    </div>
 </div>
 
 <div class="container">

@@ -1,0 +1,17 @@
+ul.forImagelist li {
+
+    width: 200px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 20px;
+
+}
+div.navcolor {
+
+    color: #0c0c0c;
+}
+input.asearchLocation{
+   width: 80%;
+
+
+}
